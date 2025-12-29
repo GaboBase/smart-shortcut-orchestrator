@@ -1,0 +1,100 @@
+{
+  "$schema": "https://comet.perplexity.ai/schemas/keyboard-shortcuts.json",
+  "version": "1.0.0",
+  "name": "Smart Shortcut Orchestrator - Keyboard Shortcuts",
+  "description": "Keyboard shortcuts for CometShortcut Manager integration",
+  "shortcuts": [
+    {
+      "id": "comet-shortcut-manager",
+      "name": "Open Smart Shortcut Manager",
+      "description": "Open the Smart Shortcut Orchestrator Manager in modal",
+      "keybind": {
+        "mac": "cmd+shift+s",
+        "windows": "ctrl+shift+s",
+        "linux": "ctrl+shift+s"
+      },
+      "action": "openCometShortcutManager",
+      "handler": "SmartShortcutManager.openModal",
+      "priority": "high",
+      "modal": true,
+      "autofocus": true,
+      "position": "center",
+      "size": "medium",
+      "theme": "light",
+      "persist_history": true,
+      "persist_state": true,
+      "tags": ["orchestration", "navigation", "project-management"],
+      "enabled": true
+    },
+    {
+      "id": "quick-execute-shortcut",
+      "name": "Quick Execute Shortcut",
+      "description": "Quickly execute an orchestration without full UI",
+      "keybind": {
+        "mac": "cmd+option+s",
+        "windows": "ctrl+alt+s",
+        "linux": "ctrl+alt+s"
+      },
+      "action": "quickExecuteOrchestration",
+      "handler": "SmartShortcutManager.quickExecute",
+      "priority": "medium",
+      "modal": true,
+      "size": "small",
+      "prompt": "Enter intent:",
+      "tags": ["execution", "quick-action"],
+      "enabled": true
+    },
+    {
+      "id": "toggle-shortcut-widget",
+      "name": "Toggle Smart Shortcut Widget",
+      "description": "Toggle the sidebar widget visibility",
+      "keybind": {
+        "mac": "cmd+shift+w",
+        "windows": "ctrl+shift+w",
+        "linux": "ctrl+shift+w"
+      },
+      "action": "toggleSidebarWidget",
+      "handler": "SmartShortcutWidget.toggle",
+      "priority": "medium",
+      "toggle": true,
+      "tags": ["widget", "ui"],
+      "enabled": true
+    }
+  ],
+  "global_settings": {
+    "conflict_resolution": "warn",
+    "allow_override": true,
+    "show_help_on_first_use": true,
+    "animation_duration": 300,
+    "autosave_interval": 5000,
+    "enable_logging": true
+  },
+  "integrations": {
+    "github": {
+      "enabled": true,
+      "repository": "https://github.com/GaboBase/smart-shortcut-orchestrator",
+      "api_endpoint": "https://api.github.com/repos/GaboBase/smart-shortcut-orchestrator"
+    },
+    "comet": {
+      "enabled": true,
+      "auto_sync": true,
+      "persist_across_sessions": true
+    }
+  },
+  "metadata": {
+    "created": "2025-12-29T03:00:00Z",
+    "updated": "2025-12-29T03:00:00Z",
+    "version_history": [
+      {
+        "version": "1.0.0",
+        "date": "2025-12-29",
+        "changes": "Initial release with 3 keyboard shortcuts"
+      }
+    ],
+    "compatibility": {
+      "comet_version": ">=1.0.0",
+      "browser": ["Chrome", "Firefox", "Safari", "Edge"],
+      "platforms": ["macOS", "Windows", "Linux"]
+    }
+  }
+}
