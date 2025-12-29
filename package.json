@@ -1,0 +1,33 @@
+{
+  "name": "smart-shortcut-orchestrator",
+  "version": "1.0.0",
+  "description": "Intelligent orchestration system for distributed multi-site intent execution with 4-phase processing",
+  "main": "src/smart-shortcut-orchestrator.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "example": "node examples/complete-example.js",
+    "lint": "eslint src/",
+    "start": "node examples/complete-example.js"
+  },
+  "keywords": [
+    "orchestration",
+    "multi-site",
+    "intent",
+    "execution",
+    "microservices",
+    "distributed",
+    "quality-badge",
+    "ai"
+  ],
+  "author": "Gabriel",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^29.0.0",
+    "eslint": "^8.0.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
