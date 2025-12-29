@@ -1,0 +1,92 @@
+{
+  "widget": {
+    "enabled": true,
+    "name": "Smart Shortcut Orchestrator",
+    "description": "Intelligent orchestration widget for multi-site intent execution",
+    "version": "1.0.0",
+    "layout": "compact",
+    "position": "bottom-right",
+    "dimensions": {
+      "width": 320,
+      "height": 400,
+      "minWidth": 280,
+      "minHeight": 300
+    },
+    "styling": {
+      "theme": "dark",
+      "primaryColor": "#007bff",
+      "accentColor": "#0056b3",
+      "backgroundColor": "#1e1e1e",
+      "textColor": "#ffffff",
+      "borderRadius": 8,
+      "fontFamily": "system-ui, -apple-system, sans-serif",
+      "fontSize": 14
+    },
+    "features": {
+      "searchEnabled": true,
+      "quickActions": true,
+      "recentHistory": true,
+      "favorites": true,
+      "draggable": true,
+      "resizable": true,
+      "minimizable": true,
+      "analytics": true
+    },
+    "shortcuts": [
+      {
+        "id": "open-manager",
+        "label": "Open Manager",
+        "icon": "settings",
+        "action": "openManager",
+        "hotkey": "Ctrl+Shift+M"
+      },
+      {
+        "id": "quick-execute",
+        "label": "Quick Execute",
+        "icon": "play",
+        "action": "quickExecute",
+        "hotkey": "Ctrl+Shift+E"
+      },
+      {
+        "id": "toggle-visibility",
+        "label": "Toggle Visibility",
+        "icon": "eye",
+        "action": "toggleVisibility",
+        "hotkey": "Ctrl+Shift+V"
+      }
+    ],
+    "persistence": {
+      "saveState": true,
+      "savePosition": true,
+      "saveFavorites": true,
+      "storageKey": "smart-shortcut-widget-state"
+    },
+    "security": {
+      "requireAuth": false,
+      "contentSecurityPolicy": "strict",
+      "sandboxMode": true
+    },
+    "performance": {
+      "lazyLoad": true,
+      "cacheEnabled": true,
+      "cacheDuration": 3600,
+      "maxCacheSize": 10485760
+    }
+  },
+  "metadata": {
+    "created": "2025-12-29T03:00:00Z",
+    "updated": "2025-12-29T03:00:00Z",
+    "version_history": [
+      {
+        "version": "1.0.0",
+        "date": "2025-12-29",
+        "changes": "Initial widget configuration for Comet integration"
+      }
+    ]
+  },
+  "compatibility": {
+    "comet_version": ">1.0.0",
+    "browser": ["Chrome", "Firefox", "Safari", "Edge"],
+    "platforms": ["macOS", "Windows", "Linux"]
+  }
+}
