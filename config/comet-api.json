@@ -1,0 +1,138 @@
+{
+  "api": {
+    "enabled": true,
+    "version": "1.0.0",
+    "baseUrl": "https://api.comet.local",
+    "endpoints": {
+      "orchestrator": "/api/v1/orchestrator",
+      "shortcuts": "/api/v1/shortcuts",
+      "execute": "/api/v1/execute",
+      "status": "/api/v1/status",
+      "logs": "/api/v1/logs",
+      "analytics": "/api/v1/analytics"
+    },
+    "authentication": {
+      "enabled": true,
+      "type": "bearer",
+      "tokenEndpoint": "/api/v1/auth/token",
+      "refreshEndpoint": "/api/v1/auth/refresh",
+      "scopes": ["read", "write", "execute"],
+      "expiresIn": 3600
+    },
+    "rateLimit": {
+      "enabled": true,
+      "requestsPerMinute": 60,
+      "requestsPerHour": 1000,
+      "burstLimit": 10
+    },
+    "timeout": {
+      "request": 30000,
+      "response": 60000,
+      "execution": 300000
+    },
+    "retry": {
+      "enabled": true,
+      "maxAttempts": 3,
+      "backoffMultiplier": 2,
+      "initialDelayMs": 100,
+      "maxDelayMs": 10000
+    },
+    "headers": {
+      "ContentType": "application/json",
+      "UserAgent": "Smart-Shortcut-Orchestrator/1.0.0",
+      "Accept": "application/json",
+      "X-Client-ID": "comet-integrator"
+    },
+    "endpoints_config": [
+      {
+        "path": "/api/v1/orchestrator",
+        "method": "POST",
+        "description": "Execute orchestration workflow",
+        "requiresAuth": true,
+        "rateLimit": 10,
+        "timeout": 300000,
+        "retryable": true
+      },
+      {
+        "path": "/api/v1/shortcuts",
+        "method": "GET",
+        "description": "List available shortcuts",
+        "requiresAuth": true,
+        "rateLimit": 30,
+        "timeout": 30000,
+        "retryable": true
+      },
+      {
+        "path": "/api/v1/execute",
+        "method": "POST",
+        "description": "Execute a specific shortcut",
+        "requiresAuth": true,
+        "rateLimit": 20,
+        "timeout": 120000,
+        "retryable": false
+      },
+      {
+        "path": "/api/v1/status",
+        "method": "GET",
+        "description": "Get API and orchestrator status",
+        "requiresAuth": false,
+        "rateLimit": 60,
+        "timeout": 10000,
+        "retryable": true
+      }
+    ],
+    "caching": {
+      "enabled": true,
+      "ttl": 300,
+      "maxSize": 52428800,
+      "strategy": "LRU"
+    },
+    "logging": {
+      "enabled": true,
+      "level": "info",
+      "format": "json",
+      "includeRequestBody": false,
+      "includeResponseBody": false,
+      "sensitiveFields": ["token", "password", "apiKey"]
+    },
+    "monitoring": {
+      "enabled": true,
+      "metricsEndpoint": "/api/v1/metrics",
+      "healthCheckEndpoint": "/health",
+      "healthCheckInterval": 60000
+    },
+    "security": {
+      "enableCORS": true,
+      "corsOrigins": ["*"],
+      "enableCSRF": true,
+      "enableRateLimiting": true,
+      "enableEncryption": true,
+      "tlsVersion": "1.3"
+    }
+  },
+  "webhook": {
+    "enabled": true,
+    "endpoint": "/api/v1/webhooks",
+    "events": ["execution.started", "execution.completed", "execution.failed", "shortcut.created"],
+    "retryPolicy": {
+      "maxRetries": 5,
+      "backoffMultiplier": 2
+    }
+  },
+  "metadata": {
+    "created": "2025-12-29T03:00:00Z",
+    "updated": "2025-12-29T03:00:00Z",
+    "version_history": [
+      {
+        "version": "1.0.0",
+        "date": "2025-12-29",
+        "changes": "Initial API configuration for Comet integration"
+      }
+    ]
+  },
+  "compatibility": {
+    "comet_version": ">1.0.0",
+    "nodejs_version": ">=14.0.0",
+    "apis": ["REST", "WebSocket", "GraphQL"]
+  }
+}
